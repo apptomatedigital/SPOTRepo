@@ -1,0 +1,1192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SpotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="AccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationDetails">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyDetails">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Website" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ContactName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="SiteInfo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrganizationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyNetworkDomain">
+          <Key>
+            <PropertyRef Name="CNCId" />
+          </Key>
+          <Property Name="CNCId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Domain" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NetworkTimeServer" Type="varchar(max)" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanySite">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="SiteName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="20" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Website" Type="varchar" MaxLength="500" />
+          <Property Name="ContactName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceforUsers">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DevicePasswords">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Firewallinformation">
+          <Key>
+            <PropertyRef Name="FirewallId" />
+          </Key>
+          <Property Name="FirewallId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DNSName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectManufacturer" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OS" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OSVersion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ManufacturerPartNumber" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InstallDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyStarted" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyExpires" Type="datetime" Nullable="false" />
+          <Property Name="UploadFirewallConfiguration" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SelectTag" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeneratePassword">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupDetails">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invitations">
+          <Key>
+            <PropertyRef Name="InviteId" />
+          </Key>
+          <Property Name="InviteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+          <Property Name="IsRegistered" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NetworkInterface">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectManufacturer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OSVersion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManufacturerPartNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InstallDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyStarted" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyExpires" Type="datetime" Nullable="false" />
+          <Property Name="UploadNetworkSwitchConfiguration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="SelectTag" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrganizationDetails">
+          <Key>
+            <PropertyRef Name="OrganizationId" />
+          </Key>
+          <Property Name="OrganizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OTP" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="IsActivated" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PasswordAttempts">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Attempts" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouterInfo">
+          <Key>
+            <PropertyRef Name="RouterId" />
+          </Key>
+          <Property Name="RouterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DNSName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeviceType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SelectManufacturer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModelType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OSVersion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManufacturerPartNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InstallDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyStarted" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyExpires" Type="datetime" Nullable="false" />
+          <Property Name="UploadRouterConfiguration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServerInfo">
+          <Key>
+            <PropertyRef Name="ServerId" />
+          </Key>
+          <Property Name="ServerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DNSName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectManufacturer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectModel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectManufacturerPartNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectOS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectOSVersion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InstallDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyStarted" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyExpires" Type="datetime" Nullable="false" />
+          <Property Name="SelectServerRoles" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoftwareType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoftwareVersion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LicenseKey" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiteNetworkDomainstory">
+          <Key>
+            <PropertyRef Name="DomainStoryId" />
+          </Key>
+          <Property Name="SiteDomain" Type="varchar" MaxLength="100" />
+          <Property Name="DomainStoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NetworkId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SubnetMask" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Gateway" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="VLANNumber" Type="varchar" MaxLength="50" />
+          <Property Name="VLANName" Type="varchar" MaxLength="50" />
+          <Property Name="DNSServer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DHCPServer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DHCPIPRanges" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoftwareDetails">
+          <Key>
+            <PropertyRef Name="SoftwareId" />
+          </Key>
+          <Property Name="SoftwareId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Manufacturer" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectSoftwareCategory" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="OnPremises" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cloud" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SoftwareType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoftwarePackageDetails">
+          <Key>
+            <PropertyRef Name="PackageId" />
+          </Key>
+          <Property Name="PackageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageName" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SwitchInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectManufacturer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OSVersion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManufacturerPartNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InstallDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyStarted" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyExpires" Type="datetime" Nullable="false" />
+          <Property Name="UploadNetworkSwitchConfiguration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="SelectTag" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ApplicationId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrimaryPhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="30" />
+          <Property Name="AlternatePhone" Type="varchar" MaxLength="20" />
+          <Property Name="Title" Type="varchar" MaxLength="30" />
+          <Property Name="Department" Type="varchar" MaxLength="20" />
+          <Property Name="IsPrimaryContact" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UsersGroup">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ValidateDomains">
+          <Key>
+            <PropertyRef Name="DomainId" />
+          </Key>
+          <Property Name="DomainId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DomailName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkStationInfo">
+          <Key>
+            <PropertyRef Name="WorkStationId" />
+          </Key>
+          <Property Name="WorkStationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DNSName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectManufacturer" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectModel" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectManufacturerPartNumber" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectOS" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectOSVersion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="InstallDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyStarted" Type="datetime" Nullable="false" />
+          <Property Name="WarrantyExpires" Type="datetime" Nullable="false" />
+          <Property Name="SelectServerRoles" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SelectTag" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SoftwareType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SoftwareVersion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LicenseKey" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PasswordAttempts_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="PasswordAttempts" Type="Self.PasswordAttempts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="PasswordAttempts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SpotModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationDetails" EntityType="Self.ApplicationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyDetails" EntityType="Self.CompanyDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyNetworkDomain" EntityType="Self.CompanyNetworkDomain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanySite" EntityType="Self.CompanySite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviceforUsers" EntityType="Self.DeviceforUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DevicePasswords" EntityType="Self.DevicePasswords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Firewallinformation" EntityType="Self.Firewallinformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GeneratePassword" EntityType="Self.GeneratePassword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupDetails" EntityType="Self.GroupDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invitations" EntityType="Self.Invitations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NetworkInterface" EntityType="Self.NetworkInterface" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrganizationDetails" EntityType="Self.OrganizationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordAttempts" EntityType="Self.PasswordAttempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouterInfo" EntityType="Self.RouterInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServerInfo" EntityType="Self.ServerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteNetworkDomainstory" EntityType="Self.SiteNetworkDomainstory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoftwareDetails" EntityType="Self.SoftwareDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoftwarePackageDetails" EntityType="Self.SoftwarePackageDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SwitchInfo" EntityType="Self.SwitchInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserApplication" EntityType="Self.UserApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersGroup" EntityType="Self.UsersGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTag" EntityType="Self.UserTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ValidateDomains" EntityType="Self.ValidateDomains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkStationInfo" EntityType="Self.WorkStationInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PasswordAttempts_Account" Association="Self.FK_PasswordAttempts_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="PasswordAttempts" EntitySet="PasswordAttempts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SpotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SpotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="SpotModel.Account" />
+          <EntitySet Name="Invitations" EntityType="SpotModel.Invitation" />
+          <EntitySet Name="PasswordAttempts" EntityType="SpotModel.PasswordAttempt" />
+          <AssociationSet Name="FK_PasswordAttempts_Account" Association="SpotModel.FK_PasswordAttempts_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="PasswordAttempt" EntitySet="PasswordAttempts" />
+          </AssociationSet>
+          <EntitySet Name="ValidateDomains" EntityType="SpotModel.ValidateDomain" />
+          <EntitySet Name="OrganizationDetails" EntityType="SpotModel.OrganizationDetail" />
+          <EntitySet Name="CompanyDetails" EntityType="SpotModel.CompanyDetail" />
+          <EntitySet Name="SiteNetworkDomainstories" EntityType="SpotModel.SiteNetworkDomainstory" />
+          <EntitySet Name="DevicePasswords" EntityType="SpotModel.DevicePassword" />
+          <EntitySet Name="Users" EntityType="SpotModel.User" />
+          <EntitySet Name="UserTags" EntityType="SpotModel.UserTag" />
+          <EntitySet Name="GeneratePasswords" EntityType="SpotModel.GeneratePassword" />
+          <EntitySet Name="GroupDetails" EntityType="SpotModel.GroupDetail" />
+          <EntitySet Name="ApplicationDetails" EntityType="SpotModel.ApplicationDetail" />
+          <EntitySet Name="CompanySites" EntityType="SpotModel.CompanySite" />
+          <EntitySet Name="Firewallinformations" EntityType="SpotModel.Firewallinformation" />
+          <EntitySet Name="ServerInfoes" EntityType="SpotModel.ServerInfo" />
+          <EntitySet Name="WorkStationInfoes" EntityType="SpotModel.WorkStationInfo" />
+          <EntitySet Name="SoftwareDetails" EntityType="SpotModel.SoftwareDetail" />
+          <EntitySet Name="SoftwarePackageDetails" EntityType="SpotModel.SoftwarePackageDetail" />
+          <EntitySet Name="CompanyNetworkDomains" EntityType="SpotModel.CompanyNetworkDomain" />
+          <EntitySet Name="RouterInfoes" EntityType="SpotModel.RouterInfo" />
+          <EntitySet Name="SwitchInfoes" EntityType="SpotModel.SwitchInfo" />
+          <EntitySet Name="NetworkInterfaces" EntityType="SpotModel.NetworkInterface" />
+          <EntitySet Name="DeviceforUsers" EntityType="SpotModel.DeviceforUser" />
+          <EntitySet Name="UsersGroups" EntityType="SpotModel.UsersGroup" />
+          <EntitySet Name="UserApplications" EntityType="SpotModel.UserApplication" />
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="AccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PasswordAttempt" Relationship="SpotModel.FK_PasswordAttempts_Account" FromRole="Account" ToRole="PasswordAttempt" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invitation">
+          <Key>
+            <PropertyRef Name="InviteId" />
+          </Key>
+          <Property Name="InviteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsRegistered" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PasswordAttempt">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Attempts" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="SpotModel.FK_PasswordAttempts_Account" FromRole="PasswordAttempt" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_PasswordAttempts_Account">
+          <End Type="SpotModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="SpotModel.PasswordAttempt" Role="PasswordAttempt" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="PasswordAttempt">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ValidateDomain">
+          <Key>
+            <PropertyRef Name="DomainId" />
+          </Key>
+          <Property Name="DomainId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomailName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OrganizationDetail">
+          <Key>
+            <PropertyRef Name="OrganizationId" />
+          </Key>
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrganizationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OTP" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="IsActivated" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyDetail">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SiteInfo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SiteName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiteNetworkDomainstory">
+          <Key>
+            <PropertyRef Name="DomainStoryId" />
+          </Key>
+          <Property Name="SiteDomain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DomainStoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NetworkId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubnetMask" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gateway" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VLANNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VLANName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNSServer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DHCPServer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DHCPIPRanges" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DevicePassword">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrimaryPhone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AlternatePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsPrimaryContact" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserTag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeneratePassword">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GroupDetail">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ApplicationDetail">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CompanySite">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="SiteName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Firewallinformation">
+          <Key>
+            <PropertyRef Name="FirewallId" />
+          </Key>
+          <Property Name="FirewallId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNSName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturer" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OSVersion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerPartNumber" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InstallDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyExpires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UploadFirewallConfiguration" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SelectTag" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServerInfo">
+          <Key>
+            <PropertyRef Name="ServerId" />
+          </Key>
+          <Property Name="ServerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNSName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectModel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturerPartNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectOS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectOSVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InstallDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyExpires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SelectServerRoles" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SoftwareType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SoftwareVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkStationInfo">
+          <Key>
+            <PropertyRef Name="WorkStationId" />
+          </Key>
+          <Property Name="WorkStationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DNSName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectModel" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturerPartNumber" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectOS" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectOSVersion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="InstallDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyExpires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SelectServerRoles" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectTag" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SoftwareType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SoftwareVersion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseKey" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoftwareDetail">
+          <Key>
+            <PropertyRef Name="SoftwareId" />
+          </Key>
+          <Property Name="SoftwareId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SelectSoftwareCategory" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OnPremises" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cloud" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SoftwareType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SoftwarePackageDetail">
+          <Key>
+            <PropertyRef Name="PackageId" />
+          </Key>
+          <Property Name="PackageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CompanyNetworkDomain">
+          <Key>
+            <PropertyRef Name="CNCId" />
+          </Key>
+          <Property Name="CNCId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Domain" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NetworkTimeServer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouterInfo">
+          <Key>
+            <PropertyRef Name="RouterId" />
+          </Key>
+          <Property Name="RouterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNSName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModelType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OSVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerPartNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InstallDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyExpires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UploadRouterConfiguration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SwitchInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OSVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerPartNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InstallDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyExpires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UploadNetworkSwitchConfiguration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SelectTag" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NetworkInterface">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SelectManufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OSVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerPartNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InstallDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyStarted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrantyExpires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UploadNetworkSwitchConfiguration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SelectTag" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceforUser">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UsersGroup">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SpotModelStoreContainer" CdmEntityContainer="SpotEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="SpotModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invitations">
+            <EntityTypeMapping TypeName="SpotModel.Invitation">
+              <MappingFragment StoreEntitySet="Invitations">
+                <ScalarProperty Name="IsRegistered" ColumnName="IsRegistered" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="InviteId" ColumnName="InviteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordAttempts">
+            <EntityTypeMapping TypeName="SpotModel.PasswordAttempt">
+              <MappingFragment StoreEntitySet="PasswordAttempts">
+                <ScalarProperty Name="Attempts" ColumnName="Attempts" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ValidateDomains">
+            <EntityTypeMapping TypeName="SpotModel.ValidateDomain">
+              <MappingFragment StoreEntitySet="ValidateDomains">
+                <ScalarProperty Name="DomailName" ColumnName="DomailName" />
+                <ScalarProperty Name="DomainId" ColumnName="DomainId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizationDetails">
+            <EntityTypeMapping TypeName="SpotModel.OrganizationDetail">
+              <MappingFragment StoreEntitySet="OrganizationDetails">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="OTP" ColumnName="OTP" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyDetails">
+            <EntityTypeMapping TypeName="SpotModel.CompanyDetail">
+              <MappingFragment StoreEntitySet="CompanyDetails">
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteInfo" ColumnName="SiteInfo" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteNetworkDomainstories">
+            <EntityTypeMapping TypeName="SpotModel.SiteNetworkDomainstory">
+              <MappingFragment StoreEntitySet="SiteNetworkDomainstory">
+                <ScalarProperty Name="DHCPIPRanges" ColumnName="DHCPIPRanges" />
+                <ScalarProperty Name="DHCPServer" ColumnName="DHCPServer" />
+                <ScalarProperty Name="DNSServer" ColumnName="DNSServer" />
+                <ScalarProperty Name="VLANName" ColumnName="VLANName" />
+                <ScalarProperty Name="VLANNumber" ColumnName="VLANNumber" />
+                <ScalarProperty Name="Gateway" ColumnName="Gateway" />
+                <ScalarProperty Name="SubnetMask" ColumnName="SubnetMask" />
+                <ScalarProperty Name="NetworkId" ColumnName="NetworkId" />
+                <ScalarProperty Name="DomainStoryId" ColumnName="DomainStoryId" />
+                <ScalarProperty Name="SiteDomain" ColumnName="SiteDomain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DevicePasswords">
+            <EntityTypeMapping TypeName="SpotModel.DevicePassword">
+              <MappingFragment StoreEntitySet="DevicePasswords">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SpotModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsPrimaryContact" ColumnName="IsPrimaryContact" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AlternatePhone" ColumnName="AlternatePhone" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTags">
+            <EntityTypeMapping TypeName="SpotModel.UserTag">
+              <MappingFragment StoreEntitySet="UserTag">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GeneratePasswords">
+            <EntityTypeMapping TypeName="SpotModel.GeneratePassword">
+              <MappingFragment StoreEntitySet="GeneratePassword">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupDetails">
+            <EntityTypeMapping TypeName="SpotModel.GroupDetail">
+              <MappingFragment StoreEntitySet="GroupDetails">
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationDetails">
+            <EntityTypeMapping TypeName="SpotModel.ApplicationDetail">
+              <MappingFragment StoreEntitySet="ApplicationDetails">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanySites">
+            <EntityTypeMapping TypeName="SpotModel.CompanySite">
+              <MappingFragment StoreEntitySet="CompanySite">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firewallinformations">
+            <EntityTypeMapping TypeName="SpotModel.Firewallinformation">
+              <MappingFragment StoreEntitySet="Firewallinformation">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="SelectTag" ColumnName="SelectTag" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UploadFirewallConfiguration" ColumnName="UploadFirewallConfiguration" />
+                <ScalarProperty Name="WarrantyExpires" ColumnName="WarrantyExpires" />
+                <ScalarProperty Name="WarrantyStarted" ColumnName="WarrantyStarted" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ManufacturerPartNumber" ColumnName="ManufacturerPartNumber" />
+                <ScalarProperty Name="OSVersion" ColumnName="OSVersion" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SelectManufacturer" ColumnName="SelectManufacturer" />
+                <ScalarProperty Name="DNSName" ColumnName="DNSName" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="FirewallId" ColumnName="FirewallId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServerInfoes">
+            <EntityTypeMapping TypeName="SpotModel.ServerInfo">
+              <MappingFragment StoreEntitySet="ServerInfo">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
+                <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
+                <ScalarProperty Name="SoftwareVersion" ColumnName="SoftwareVersion" />
+                <ScalarProperty Name="SoftwareType" ColumnName="SoftwareType" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SelectServerRoles" ColumnName="SelectServerRoles" />
+                <ScalarProperty Name="WarrantyExpires" ColumnName="WarrantyExpires" />
+                <ScalarProperty Name="WarrantyStarted" ColumnName="WarrantyStarted" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="SelectOSVersion" ColumnName="SelectOSVersion" />
+                <ScalarProperty Name="SelectOS" ColumnName="SelectOS" />
+                <ScalarProperty Name="SelectManufacturerPartNumber" ColumnName="SelectManufacturerPartNumber" />
+                <ScalarProperty Name="SelectModel" ColumnName="SelectModel" />
+                <ScalarProperty Name="SelectManufacturer" ColumnName="SelectManufacturer" />
+                <ScalarProperty Name="DNSName" ColumnName="DNSName" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkStationInfoes">
+            <EntityTypeMapping TypeName="SpotModel.WorkStationInfo">
+              <MappingFragment StoreEntitySet="WorkStationInfo">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
+                <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
+                <ScalarProperty Name="SoftwareVersion" ColumnName="SoftwareVersion" />
+                <ScalarProperty Name="SoftwareType" ColumnName="SoftwareType" />
+                <ScalarProperty Name="SelectTag" ColumnName="SelectTag" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SelectServerRoles" ColumnName="SelectServerRoles" />
+                <ScalarProperty Name="WarrantyExpires" ColumnName="WarrantyExpires" />
+                <ScalarProperty Name="WarrantyStarted" ColumnName="WarrantyStarted" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="SelectOSVersion" ColumnName="SelectOSVersion" />
+                <ScalarProperty Name="SelectOS" ColumnName="SelectOS" />
+                <ScalarProperty Name="SelectManufacturerPartNumber" ColumnName="SelectManufacturerPartNumber" />
+                <ScalarProperty Name="SelectModel" ColumnName="SelectModel" />
+                <ScalarProperty Name="SelectManufacturer" ColumnName="SelectManufacturer" />
+                <ScalarProperty Name="DNSName" ColumnName="DNSName" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="WorkStationId" ColumnName="WorkStationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoftwareDetails">
+            <EntityTypeMapping TypeName="SpotModel.SoftwareDetail">
+              <MappingFragment StoreEntitySet="SoftwareDetails">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SoftwareType" ColumnName="SoftwareType" />
+                <ScalarProperty Name="Cloud" ColumnName="Cloud" />
+                <ScalarProperty Name="OnPremises" ColumnName="OnPremises" />
+                <ScalarProperty Name="SelectSoftwareCategory" ColumnName="SelectSoftwareCategory" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="SoftwareId" ColumnName="SoftwareId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoftwarePackageDetails">
+            <EntityTypeMapping TypeName="SpotModel.SoftwarePackageDetail">
+              <MappingFragment StoreEntitySet="SoftwarePackageDetails">
+                <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyNetworkDomains">
+            <EntityTypeMapping TypeName="SpotModel.CompanyNetworkDomain">
+              <MappingFragment StoreEntitySet="CompanyNetworkDomain">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="NetworkTimeServer" ColumnName="NetworkTimeServer" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="CNCId" ColumnName="CNCId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouterInfoes">
+            <EntityTypeMapping TypeName="SpotModel.RouterInfo">
+              <MappingFragment StoreEntitySet="RouterInfo">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UploadRouterConfiguration" ColumnName="UploadRouterConfiguration" />
+                <ScalarProperty Name="WarrantyExpires" ColumnName="WarrantyExpires" />
+                <ScalarProperty Name="WarrantyStarted" ColumnName="WarrantyStarted" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ManufacturerPartNumber" ColumnName="ManufacturerPartNumber" />
+                <ScalarProperty Name="OSVersion" ColumnName="OSVersion" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ModelType" ColumnName="ModelType" />
+                <ScalarProperty Name="SelectManufacturer" ColumnName="SelectManufacturer" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="DNSName" ColumnName="DNSName" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="RouterId" ColumnName="RouterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SwitchInfoes">
+            <EntityTypeMapping TypeName="SpotModel.SwitchInfo">
+              <MappingFragment StoreEntitySet="SwitchInfo">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="SelectTag" ColumnName="SelectTag" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UploadNetworkSwitchConfiguration" ColumnName="UploadNetworkSwitchConfiguration" />
+                <ScalarProperty Name="WarrantyExpires" ColumnName="WarrantyExpires" />
+                <ScalarProperty Name="WarrantyStarted" ColumnName="WarrantyStarted" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ManufacturerPartNumber" ColumnName="ManufacturerPartNumber" />
+                <ScalarProperty Name="OSVersion" ColumnName="OSVersion" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SelectManufacturer" ColumnName="SelectManufacturer" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NetworkInterfaces">
+            <EntityTypeMapping TypeName="SpotModel.NetworkInterface">
+              <MappingFragment StoreEntitySet="NetworkInterface">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="SelectTag" ColumnName="SelectTag" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UploadNetworkSwitchConfiguration" ColumnName="UploadNetworkSwitchConfiguration" />
+                <ScalarProperty Name="WarrantyExpires" ColumnName="WarrantyExpires" />
+                <ScalarProperty Name="WarrantyStarted" ColumnName="WarrantyStarted" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ManufacturerPartNumber" ColumnName="ManufacturerPartNumber" />
+                <ScalarProperty Name="OSVersion" ColumnName="OSVersion" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SelectManufacturer" ColumnName="SelectManufacturer" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceforUsers">
+            <EntityTypeMapping TypeName="SpotModel.DeviceforUser">
+              <MappingFragment StoreEntitySet="DeviceforUsers">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersGroups">
+            <EntityTypeMapping TypeName="SpotModel.UsersGroup">
+              <MappingFragment StoreEntitySet="UsersGroup">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserApplications">
+            <EntityTypeMapping TypeName="SpotModel.UserApplication">
+              <MappingFragment StoreEntitySet="UserApplication">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

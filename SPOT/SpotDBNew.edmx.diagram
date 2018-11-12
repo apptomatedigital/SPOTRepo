@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="657fdb6ad48e43309e012809330ee8b1" Name="Diagram1">
+        <EntityTypeShape EntityType="SpotModel.Account" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="SpotModel.Invitation" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SpotModel.PasswordAttempt" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="SpotModel.FK_PasswordAttempts_Account" />
+        <EntityTypeShape EntityType="SpotModel.ValidateDomain" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SpotModel.OrganizationDetail" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SpotModel.CompanyDetail" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SpotModel.SiteNetworkDomainstory" Width="1.5" PointX="7.875" PointY="5.125" />
+        <EntityTypeShape EntityType="SpotModel.DevicePassword" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SpotModel.User" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SpotModel.UserTag" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SpotModel.GeneratePassword" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SpotModel.GroupDetail" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SpotModel.ApplicationDetail" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SpotModel.CompanySite" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SpotModel.Firewallinformation" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SpotModel.ServerInfo" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SpotModel.WorkStationInfo" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SpotModel.SoftwareDetail" Width="1.5" PointX="8.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SpotModel.SoftwarePackageDetail" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SpotModel.CompanyNetworkDomain" Width="1.5" PointX="10.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SpotModel.RouterInfo" Width="1.5" PointX="10.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SpotModel.SwitchInfo" Width="1.5" PointX="12.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SpotModel.NetworkInterface" Width="1.5" PointX="14.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SpotModel.DeviceforUser" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SpotModel.UsersGroup" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SpotModel.UserApplication" Width="1.5" PointX="5.375" PointY="13.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
